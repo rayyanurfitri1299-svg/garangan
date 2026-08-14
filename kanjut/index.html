@@ -2,16 +2,12 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vudol</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -21,59 +17,35 @@
       --line: #e2e8f0;
       --btn: #111827;
       --btn-hover: #000000;
-      --card: #f8fafc;
-
-      --card-dark: #0f172a;
-      --text-dark: #e5e7eb;
-      --muted-dark: #94a3b8;
-      --line-dark: #1e293b;
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      -webkit-text-size-adjust: 100%;
-    }
-
     html,
     body {
       width: 100%;
-      min-width: 0;
+      min-height: 100%;
       margin: 0;
       padding: 0;
     }
 
     body {
-      font-family:
-        Inter,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
-
+      font-family: Inter, system-ui, sans-serif;
       color: var(--text);
       background: var(--bg);
       line-height: 1.45;
       overflow-x: hidden;
     }
 
-    /* =========================
-       APP BAR
-    ========================= */
-
+    /* HEADER */
     .appbar {
       position: sticky;
       top: 0;
-      z-index: 20;
-
-      background: rgba(255,255,255,.9);
-      backdrop-filter: saturate(180%) blur(8px);
-
+      z-index: 10;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--line);
     }
 
@@ -81,11 +53,8 @@
       width: 100%;
       max-width: 1200px;
       margin: auto;
-
       display: flex;
       align-items: center;
-      gap: 12px;
-
       padding: 10px 16px;
     }
 
@@ -93,72 +62,34 @@
       display: flex;
       align-items: center;
       gap: 8px;
-
       font-weight: 800;
-      letter-spacing: .2px;
     }
 
     .logo {
-      width: 28px;
-      height: 28px;
-
       display: grid;
       place-items: center;
-
+      width: 28px;
+      height: 28px;
       border-radius: 6px;
-
       background: #111827;
-      color: #ffffff;
-
+      color: white;
       font-size: 14px;
     }
 
-    .spacer {
-      flex: 1;
-    }
-
-    .btn {
-      appearance: none;
-      border: 0;
-
-      padding: 10px 14px;
-      border-radius: 12px;
-
-      background: var(--btn);
-      color: #ffffff;
-
-      font-weight: 600;
-      cursor: pointer;
-      touch-action: manipulation;
-    }
-
-    .btn:hover {
-      background: var(--btn-hover);
-    }
-
-    /* =========================
-       BANNER
-    ========================= */
-
+    /* CONTENT */
     .banner {
       width: 100%;
       max-width: 1200px;
-
       margin: 10px auto 0;
       padding: 8px 16px;
-
       color: var(--muted);
       font-size: 14px;
+      text-align: center;
     }
-
-    /* =========================
-       MAIN
-    ========================= */
 
     .wrap {
       width: 100%;
       max-width: 1200px;
-
       margin: 6px auto 40px;
       padding: 0 16px;
     }
@@ -166,92 +97,47 @@
     .player-shell {
       display: grid;
       place-items: center;
-
       margin-top: 20px;
     }
 
-    /* =========================
-       VIDEO
-    ========================= */
-
+    /* VIDEO */
     .phone {
       position: relative;
-
-      width: min(92vw, 420px);
+      width: clamp(240px, 92vw, 420px);
       aspect-ratio: 9 / 16;
-
       border-radius: 22px;
       overflow: hidden;
-
-      background: #000000;
-
+      background: #000;
       box-shadow:
         0 10px 30px rgba(2,6,23,.15),
         0 3px 10px rgba(2,6,23,.08);
     }
 
     .phone video {
-      display: block;
-
       width: 100%;
       height: 100%;
-
+      display: block;
       object-fit: cover;
-      background: #000000;
+      background: #000;
     }
-
-    /* =========================
-       META
-    ========================= */
 
     .meta {
       width: 100%;
       max-width: 760px;
-
       margin: 22px auto 0;
       padding: 0 6px;
-
       text-align: center;
-
       color: var(--muted);
       font-size: 13px;
     }
 
-    /* =========================
-       AD SLOT
-    ========================= */
-
-    .ad-slot {
-      width: 100%;
-      max-width: 760px;
-
-      margin: 28px auto 0;
-
-      padding: 16px;
-
-      background: var(--card);
-
-      border: 1px dashed var(--line);
-      border-radius: 16px;
-
-      text-align: center;
-
-      color: var(--muted);
-    }
-
-    /* =========================
-       DESKTOP
-    ========================= */
-
     @media (min-width: 1024px) {
       .wrap {
         display: grid;
-
         grid-template-columns:
-          minmax(0, 1fr)
-          minmax(0, 480px)
-          minmax(0, 1fr);
-
+          minmax(0,1fr)
+          minmax(0,480px)
+          minmax(0,1fr);
         align-items: start;
       }
 
@@ -260,211 +146,10 @@
       }
     }
 
-    /* =========================
-       POPUP GATE
-    ========================= */
-
-    #gate-overlay {
-      position: fixed;
-      inset: 0;
-
-      background: rgba(2,6,23,.6);
-
-      backdrop-filter: blur(3px) saturate(130%);
-
-      z-index: 9998;
-    }
-
-    #gate-modal {
-      position: fixed;
-      inset: 0;
-
-      z-index: 9999;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 16px;
-    }
-
-    .gate-card {
-      width: min(92vw, 480px);
-
-      padding: 20px;
-
-      position: relative;
-
-      background:
-        linear-gradient(
-          180deg,
-          var(--card-dark),
-          #0b1220
-        );
-
-      color: var(--text-dark);
-
-      border: 1px solid var(--line-dark);
-      border-radius: 16px;
-
-      box-shadow: 0 24px 80px rgba(0,0,0,.45);
-    }
-
-    .gate-close {
-      position: absolute;
-
-      right: 10px;
-      top: 10px;
-
-      width: 34px;
-      height: 34px;
-
-      border: 1px solid #263142;
-      border-radius: 12px;
-
-      background: #121a2a;
-      color: #cbd5e1;
-
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .gate-header h3 {
-      margin: 6px 0 4px;
-
-      font-size: 1.2rem;
-    }
-
-    .gate-sub {
-      margin: 0 0 12px;
-
-      color: var(--muted-dark);
-    }
-
-    .gate-badge {
-      display: inline-block;
-
-      padding: 6px 10px;
-
-      border: 1px solid #263142;
-      border-radius: 10px;
-
-      font-size: 1.1rem;
-      font-weight: 800;
-
-      background:
-        conic-gradient(
-          from 180deg at 50% 50%,
-          #ef4444,
-          #f59e0b,
-          #22c55e,
-          #3b82f6,
-          #ef4444
-        );
-
-      -webkit-background-clip: text;
-      background-clip: text;
-
-      color: transparent;
-    }
-
-    .gate-icon {
-      font-size: 28px;
-    }
-
-    .gate-check {
-      display: flex;
-
-      gap: .6rem;
-      align-items: flex-start;
-
-      font-size: .98rem;
-
-      margin: .25rem 0 1rem;
-    }
-
-    .gate-check input {
-      transform: translateY(3px);
-    }
-
-    .gate-actions {
-      display: flex;
-      gap: .6rem;
-    }
-
-    .gate-btn {
-      appearance: none;
-
-      border: 1px solid #263142;
-      border-radius: 12px;
-
-      padding: .65rem 1rem;
-
-      background: #121a2a;
-      color: #e5e7eb;
-
-      font-weight: 700;
-
-      cursor: pointer;
-    }
-
-    .gate-btn:disabled {
-      opacity: .5;
-      cursor: not-allowed;
-    }
-
-    .gate-btn.ghost {
-      background: transparent;
-      color: #cbd5e1;
-    }
-
-    .gate-footnote {
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-
-      margin: .8rem 0 0;
-
-      font-size: .85rem;
-      color: #93a4bd;
-    }
-
-    .dot {
-      width: 6px;
-      height: 6px;
-
-      border-radius: 50%;
-
-      background: #22c55e;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 768px) {
-
-      html,
-      body {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-      }
-
-      .wrap {
-        min-width: 0 !important;
-      }
-
+    @media (max-width: 480px) {
       .phone {
-        width: min(92vw, 420px);
-      }
-
-      .gate-actions {
-        flex-direction: column;
-      }
-
-      .gate-btn {
-        width: 100%;
+        width: 92vw;
+        max-width: 420px;
       }
     }
   </style>
@@ -472,36 +157,18 @@
 
 <body>
 
-  <!-- =========================
-       APP BAR
-  ========================== -->
-
   <header class="appbar">
     <div class="bar-inner">
-
       <div class="brand">
         <span class="logo">V</span>
         <span>Vudol</span>
       </div>
-
-      <div class="spacer"></div>
-
     </div>
   </header>
 
-
-  <!-- =========================
-       BANNER
-  ========================== -->
-
   <div class="banner">
-    Silakan tekan tombol play untuk menonton video.
+    Selamat menonton
   </div>
-
-
-  <!-- =========================
-       MAIN
-  ========================== -->
 
   <main class="wrap">
 
@@ -509,262 +176,29 @@
 
       <div class="phone">
 
-        <!-- VIDEO ANDA -->
         <video
-          id="videoPlayer"
           controls
           playsinline
           preload="metadata"
-          controlsList="nodownload"
+          poster=""
         >
-
           <source
-            src="VID-20260812-WA0001.mp4"
+            src="/kanjut/VID-20260813-WA0007.mp4"
             type="video/mp4"
           >
 
           Browser Anda tidak mendukung pemutar video.
-
         </video>
 
       </div>
 
     </section>
 
-
-    <!-- =========================
-         META
-    ========================== -->
-
     <div class="meta">
-      <span>Video tersedia untuk ditonton.</span>
-    </div>
-
-
-    <!-- =========================
-         AD SLOT
-    ========================== -->
-
-    <div class="ad-slot">
-      <!-- Tempat iklan jika diperlukan -->
+      Video
     </div>
 
   </main>
-
-
-  <!-- =========================
-       POPUP GATE
-  ========================== -->
-
-  <div id="gate-overlay" hidden></div>
-
-  <div id="gate-modal" hidden>
-
-    <div class="gate-card">
-
-      <button
-        type="button"
-        class="gate-close"
-        id="gateClose"
-        aria-label="Tutup"
-      >
-        ×
-      </button>
-
-      <div class="gate-header">
-
-        <div class="gate-icon">
-          ▶️
-        </div>
-
-        <h3>
-          Siap menonton?
-        </h3>
-
-        <p class="gate-sub">
-          Tekan tombol di bawah untuk melanjutkan.
-        </p>
-
-        <span class="gate-badge">
-          VIDEO
-        </span>
-
-      </div>
-
-      <label class="gate-check">
-
-        <input
-          type="checkbox"
-          id="gateCheck"
-        >
-
-        <span>
-          Saya siap menonton video.
-        </span>
-
-      </label>
-
-      <div class="gate-actions">
-
-        <button
-          type="button"
-          class="gate-btn"
-          id="gateContinue"
-          disabled
-        >
-          Lanjutkan
-        </button>
-
-        <button
-          type="button"
-          class="gate-btn ghost"
-          id="gateCancel"
-        >
-          Batal
-        </button>
-
-      </div>
-
-      <div class="gate-footnote">
-        <span class="dot"></span>
-        Pemutar video siap digunakan.
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
-
-  <script>
-
-    const video = document.getElementById("videoPlayer");
-
-    const gateModal =
-      document.getElementById("gate-modal");
-
-    const gateOverlay =
-      document.getElementById("gate-overlay");
-
-    const gateCheck =
-      document.getElementById("gateCheck");
-
-    const gateContinue =
-      document.getElementById("gateContinue");
-
-    const gateClose =
-      document.getElementById("gateClose");
-
-    const gateCancel =
-      document.getElementById("gateCancel");
-
-
-    /*
-      Aktifkan tombol Lanjutkan
-      setelah checkbox dicentang.
-    */
-
-    gateCheck.addEventListener("change", function () {
-
-      gateContinue.disabled = !this.checked;
-
-    });
-
-
-    /*
-      Tampilkan popup
-    */
-
-    function openGate() {
-
-      gateModal.hidden = false;
-      gateOverlay.hidden = false;
-
-    }
-
-
-    /*
-      Tutup popup
-    */
-
-    function closeGate() {
-
-      gateModal.hidden = true;
-      gateOverlay.hidden = true;
-
-    }
-
-
-    /*
-      Tombol lanjutkan
-    */
-
-    gateContinue.addEventListener("click", function () {
-
-      closeGate();
-
-      video.play().catch(function () {
-        // Browser dapat memerlukan interaksi pengguna.
-      });
-
-    });
-
-
-    /*
-      Tombol tutup
-    */
-
-    gateClose.addEventListener(
-      "click",
-      closeGate
-    );
-
-
-    gateCancel.addEventListener(
-      "click",
-      closeGate
-    );
-
-
-    /*
-      Overlay
-    */
-
-    gateOverlay.addEventListener(
-      "click",
-      closeGate
-    );
-
-
-    /*
-      Ketika video selesai,
-      posisi kembali ke awal.
-    */
-
-    video.addEventListener("ended", function () {
-
-      video.currentTime = 0;
-
-    });
-
-
-    /*
-      Jika file video gagal dimuat,
-      tampilkan pesan sederhana.
-    */
-
-    video.addEventListener("error", function () {
-
-      console.log(
-        "Video tidak dapat dimuat: VID-20260812-WA0001.mp4"
-      );
-
-    });
-
-  </script>
 
 </body>
 </html>
