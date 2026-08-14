@@ -1,149 +1,770 @@
-<html lang="id"><head>
-	<script async="" referrerpolicy="unsafe-url" type="text/javascript" src="https://de.tynt.com/deb/v2?id=wu!&amp;dn=AFWU&amp;cc=1&amp;chm=24117RN76O&amp;chpv=15.0.0&amp;chuav=Chromium%3Bv%3D137.0.7337.0%2C%20Not%2FA)Brand%3Bv%3D24.0.0.0&amp;chp=Android&amp;chmob=1&amp;chua=Chromium%3Bv%3D137%2C%20Not%2FA)Brand%3Bv%3D24&amp;r=&amp;pu=https%3A%2F%2Fsiocenmarocen.github.io%2Fdulursijastinurutnusijabon8%2F"></script><script src="//e.dtscout.com/e/?v=1a&amp;pid=5200&amp;site=1&amp;l=https%3A%2F%2Fsiocenmarocen.github.io%2Fdulursijastinurutnusijabon8%2F&amp;j=" async="" type="text/javascript"></script><script data-cfasync="false" async="" type="text/javascript" src="//gp.unsunnybirse.com/rhTGLVUkWFJkwlMA/141895"></script>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
   <title>Vudol</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
-    :root{
-      --bg:#ffffff; --text:#0f172a; --muted:#64748b; --line:#e2e8f0; --brand:#111827;
-      --btn:#111827; --btnText:#ffffff; --btnHover:#000000; --card:#f8fafc;
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --btn: #111827;
+      --btn-hover: #000000;
+      --card: #f8fafc;
+
+      --card-dark: #0f172a;
+      --text-dark: #e5e7eb;
+      --muted-dark: #94a3b8;
+      --line-dark: #1e293b;
     }
 
-    /* ===== RESET & BASE ===== */
-    *,*::before,*::after{ box-sizing:border-box }
-    html{ -webkit-text-size-adjust:100% }
-    html,body{ height:100%; margin:0 }
-    body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
-      color:var(--text); background:var(--bg); line-height:1.45;
-      overflow-x:hidden; /* cegah melebar */
-    }
-    img,video,canvas,svg,iframe{ max-width:100%; height:auto; display:block }
-
-    /* ===== APP BAR ===== */
-    .appbar{
-      position:sticky; top:0; z-index:20; background:rgba(255,255,255,.85);
-      backdrop-filter:saturate(180%) blur(8px); border-bottom:1px solid var(--line);
-    }
-    .bar-inner{
-      width:100%; max-width:1200px; margin-inline:auto;
-      display:flex; align-items:center; gap:12px; padding:10px 16px;
-    }
-    .brand{ display:flex; align-items:center; gap:8px; font-weight:800; letter-spacing:.2px }
-    .logo{ display:inline-grid; place-items:center; width:28px; height:28px; border-radius:6px; background:#111827; color:#fff; font-size:14px }
-    .spacer{ flex:1 }
-    .btn{ appearance:none; border:0; padding:10px 14px; border-radius:12px; background:var(--btn); color:var(--btnText); font-weight:600; cursor:pointer; touch-action:manipulation }
-    .btn:hover{ background:var(--btnHover) }
-
-    /* ===== BANNER INFO ===== */
-    .banner{
-      width:100%; max-width:1200px; margin:10px auto 0; padding:8px 16px;
-      color:var(--muted); font-size:14px;
+    * {
+      box-sizing: border-box;
     }
 
-    /* ===== LAYOUT ===== */
-    .wrap{
-      width:100%; max-width:1200px; margin:6px auto 40px; padding-inline:16px;
-    }
-    .player-shell{ display:grid; place-items:center; margin-top:20px }
-
-    /* Elemen ‘ponsel/video’ aman di HP */
-    .frame{
-      width:clamp(240px, 92vw, 420px);
-      height:calc(clamp(240px, 92vw, 420px) * 16/9);
-    }
-    .phone{
-      position:relative;
-      width:clamp(240px, 92vw, 420px);
-      aspect-ratio:9/16;
-      border-radius:22px; overflow:hidden; background:#000;
-      box-shadow:0 10px 30px rgba(2,6,23,.15), 0 3px 10px rgba(2,6,23,.08);
-    }
-    .phone video,.phone img{ width:100%; height:100%; object-fit:cover }
-
-    /* Footer meta */
-    .meta{
-      width:100%; max-width:760px; margin:22px auto 0; padding:0 6px;
-      text-align:center; color:var(--muted); font-size:13px;
+    html {
+      -webkit-text-size-adjust: 100%;
     }
 
-    /* Slot iklan dummy di halaman (bukan popup) */
-    .ad-slot{
-      width:100%; max-width:760px; margin:28px auto 0;
-      background:var(--card); border:1px dashed var(--line); border-radius:16px; padding:16px; text-align:center; color:var(--muted);
+    html,
+    body {
+      width: 100%;
+      min-width: 0;
+      margin: 0;
+      padding: 0;
     }
 
-    /* ===== DESKTOP ENHANCEMENT ===== */
-    @media (min-width:1024px){
-      .wrap{
-        display:grid;
-        grid-template-columns:minmax(0,1fr) minmax(0,480px) minmax(0,1fr);
-        align-items:start;
+    body {
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.45;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       APP BAR
+    ========================= */
+
+    .appbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+
+      background: rgba(255,255,255,.9);
+      backdrop-filter: saturate(180%) blur(8px);
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .bar-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      padding: 10px 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .logo {
+      width: 28px;
+      height: 28px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 6px;
+
+      background: #111827;
+      color: #ffffff;
+
+      font-size: 14px;
+    }
+
+    .spacer {
+      flex: 1;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+
+      padding: 10px 14px;
+      border-radius: 12px;
+
+      background: var(--btn);
+      color: #ffffff;
+
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .btn:hover {
+      background: var(--btn-hover);
+    }
+
+    /* =========================
+       BANNER
+    ========================= */
+
+    .banner {
+      width: 100%;
+      max-width: 1200px;
+
+      margin: 10px auto 0;
+      padding: 8px 16px;
+
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    .wrap {
+      width: 100%;
+      max-width: 1200px;
+
+      margin: 6px auto 40px;
+      padding: 0 16px;
+    }
+
+    .player-shell {
+      display: grid;
+      place-items: center;
+
+      margin-top: 20px;
+    }
+
+    /* =========================
+       VIDEO
+    ========================= */
+
+    .phone {
+      position: relative;
+
+      width: min(92vw, 420px);
+      aspect-ratio: 9 / 16;
+
+      border-radius: 22px;
+      overflow: hidden;
+
+      background: #000000;
+
+      box-shadow:
+        0 10px 30px rgba(2,6,23,.15),
+        0 3px 10px rgba(2,6,23,.08);
+    }
+
+    .phone video {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      background: #000000;
+    }
+
+    /* =========================
+       META
+    ========================= */
+
+    .meta {
+      width: 100%;
+      max-width: 760px;
+
+      margin: 22px auto 0;
+      padding: 0 6px;
+
+      text-align: center;
+
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       AD SLOT
+    ========================= */
+
+    .ad-slot {
+      width: 100%;
+      max-width: 760px;
+
+      margin: 28px auto 0;
+
+      padding: 16px;
+
+      background: var(--card);
+
+      border: 1px dashed var(--line);
+      border-radius: 16px;
+
+      text-align: center;
+
+      color: var(--muted);
+    }
+
+    /* =========================
+       DESKTOP
+    ========================= */
+
+    @media (min-width: 1024px) {
+      .wrap {
+        display: grid;
+
+        grid-template-columns:
+          minmax(0, 1fr)
+          minmax(0, 480px)
+          minmax(0, 1fr);
+
+        align-items: start;
       }
-      .player-shell{ grid-column:2 }
+
+      .player-shell {
+        grid-column: 2;
+      }
     }
 
-    /* ===== POPUP GATE (tema gelap) ===== */
-    :root{
-      --card-dark:#0f172a; --text-dark:#e5e7eb; --muted-dark:#94a3b8; --line-dark:#1e293b;
-    }
-    #gate-overlay{
-      position:fixed; inset:0; background:rgba(2,6,23,.6);
-      backdrop-filter: blur(3px) saturate(130%); z-index:9998;
-    }
-    #gate-modal{
-      position:fixed; inset:0; z-index:9999;
-      display:flex; align-items:center; justify-content:center; padding:16px;
-    }
-    .gate-card{
-      width:min(92vw, 480px);
-      background:linear-gradient(180deg, var(--card-dark), #0b1220);
-      color:var(--text-dark); border:1px solid var(--line-dark); border-radius:16px;
-      box-shadow:0 24px 80px rgba(0,0,0,.45);
-      padding:20px; position:relative;
-    }
-    .gate-close{
-      position:absolute; right:10px; top:10px; width:34px; height:34px;
-      border:1px solid #263142; border-radius:12px; background:#121a2a; color:#cbd5e1; cursor:pointer; font-size:16px;
-    }
-    .gate-header h3{ margin:6px 0 4px; font-size:1.2rem }
-    .gate-sub{ margin:0 0 12px; color:var(--muted-dark) }
-    .gate-badge{
-      display:inline-block; background:conic-gradient(from 180deg at 50% 50%, #ef4444, #f59e0b, #22c55e, #3b82f6, #ef4444);
-      -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:800; font-size:1.1rem;
-      border:1px solid #263142; padding:6px 10px; border-radius:10px;
-    }
-    .gate-icon{ font-size:28px }
-    .gate-check{ display:flex; gap:.6rem; align-items:flex-start; font-size:.98rem; margin:.25rem 0 1rem }
-    .gate-check input{ transform:translateY(3px) }
-    .gate-actions{ display:flex; gap:.6rem }
-    .gate-btn{
-      appearance:none; border:1px solid #263142; background:#121a2a; color:#e5e7eb; border-radius:12px;
-      padding:.65rem 1rem; font-weight:700; cursor:pointer; letter-spacing:.3px;
-    }
-    .gate-btn:disabled{ opacity:.5; cursor:not-allowed }
-    .gate-btn.ghost{ background:transparent; color:#cbd5e1 }
-    .gate-footnote{ margin:.8rem 0 0; font-size:.85rem; color:#93a4bd; display:flex; align-items:center; gap:.4rem }
-    .dot{ width:6px; height:6px; border-radius:50%; background:#22c55e; display:inline-block }
+    /* =========================
+       POPUP GATE
+    ========================= */
 
-    /* Ad slot di popup: scale 728×90 agar muat HP */
-    #ad-slot-wrap{ width:100%; overflow:hidden; border-top:1px dashed var(--line-dark); margin-top:8px; padding-top:8px; }
-    #ad-slot{ width:728px; transform-origin:top left }
-    @media (max-width:760px){
-      #ad-slot{ transform:scale(calc((100vw - 72px)/728)); } /* 72px ≈ padding & border kartu */
+    #gate-overlay {
+      position: fixed;
+      inset: 0;
+
+      background: rgba(2,6,23,.6);
+
+      backdrop-filter: blur(3px) saturate(130%);
+
+      z-index: 9998;
     }
 
-    /* ===== MOBILE FIX PACK (override bandel) ===== */
-    html, body { width:100% !important; max-width:100% !important; }
-    html, body, .wrap, .container, .page, .section, #__next, main { min-width:0 !important; }
-    iframe[width]{ max-width:100% !important; width:100% !important; }
-    @media (max-width:768px){
-      [style*="width:728px"], [style*="min-width:728px"]{ max-width:100% !important; width:100% !important; }
+    #gate-modal {
+      position: fixed;
+      inset: 0;
+
+      z-index: 9999;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 16px;
+    }
+
+    .gate-card {
+      width: min(92vw, 480px);
+
+      padding: 20px;
+
+      position: relative;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--card-dark),
+          #0b1220
+        );
+
+      color: var(--text-dark);
+
+      border: 1px solid var(--line-dark);
+      border-radius: 16px;
+
+      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+    }
+
+    .gate-close {
+      position: absolute;
+
+      right: 10px;
+      top: 10px;
+
+      width: 34px;
+      height: 34px;
+
+      border: 1px solid #263142;
+      border-radius: 12px;
+
+      background: #121a2a;
+      color: #cbd5e1;
+
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .gate-header h3 {
+      margin: 6px 0 4px;
+
+      font-size: 1.2rem;
+    }
+
+    .gate-sub {
+      margin: 0 0 12px;
+
+      color: var(--muted-dark);
+    }
+
+    .gate-badge {
+      display: inline-block;
+
+      padding: 6px 10px;
+
+      border: 1px solid #263142;
+      border-radius: 10px;
+
+      font-size: 1.1rem;
+      font-weight: 800;
+
+      background:
+        conic-gradient(
+          from 180deg at 50% 50%,
+          #ef4444,
+          #f59e0b,
+          #22c55e,
+          #3b82f6,
+          #ef4444
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+    .gate-icon {
+      font-size: 28px;
+    }
+
+    .gate-check {
+      display: flex;
+
+      gap: .6rem;
+      align-items: flex-start;
+
+      font-size: .98rem;
+
+      margin: .25rem 0 1rem;
+    }
+
+    .gate-check input {
+      transform: translateY(3px);
+    }
+
+    .gate-actions {
+      display: flex;
+      gap: .6rem;
+    }
+
+    .gate-btn {
+      appearance: none;
+
+      border: 1px solid #263142;
+      border-radius: 12px;
+
+      padding: .65rem 1rem;
+
+      background: #121a2a;
+      color: #e5e7eb;
+
+      font-weight: 700;
+
+      cursor: pointer;
+    }
+
+    .gate-btn:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    .gate-btn.ghost {
+      background: transparent;
+      color: #cbd5e1;
+    }
+
+    .gate-footnote {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+
+      margin: .8rem 0 0;
+
+      font-size: .85rem;
+      color: #93a4bd;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+
+      background: #22c55e;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 768px) {
+
+      html,
+      body {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+      }
+
+      .wrap {
+        min-width: 0 !important;
+      }
+
+      .phone {
+        width: min(92vw, 420px);
+      }
+
+      .gate-actions {
+        flex-direction: column;
+      }
+
+      .gate-btn {
+        width: 100%;
+      }
     }
   </style>
-<script type="text/javascript" async="" src="//s10.histats.com/js15_as.js"></script><script async="" src="https://js.capndr.com/advertising.js"></script><script src="https://js.canstrm.com/in-stream-ad-admanager/build.js" async=""></script><link rel="preconnect" href="https://torassquegs.qpon" crossorigin="anonymous"><link rel="preconnect" href="https://torassquegs.qpon" crossorigin="anonymous"><script async="" src="https://js.capndr.com/advertising.js"></script><script src="https://js.canstrm.com/pb/downloads/latest/clickadilla-vast.min.js"></script><script src="https://js.wpushsdk.com/npc/sdk/wpu/npush.m.js" async=""></script><style>.nonlinear__click-link{position:absolute;z-index:100;height:100%;width:100%}.nonlinear__click-link:hover{background:none !important}.nonlinear__banner{text-align:center;margin:auto}.nonlinear__banner>img{width:100%;height:100%;object-fit:contain}.nonlinear__banner_center{width:100%;height:100%}.nonlinear__banner_center-bottom{bottom:15%;position:absolute;left:0;right:0;z-index:999;cursor:pointer;pointer-events:all}.nonlinear__close-button{display:flex;position:absolute;top:0;right:0;outline:none;border:none;background:none;width:25px;height:25px;cursor:pointer;z-index:1000}.nonlinear__close-button span{font-size:20px;color:#fff;text-shadow:1px 1px 2px #000}</style><style>.vast_player_CTA{font-family:Roboto,sans-serif,Verdana,Arial;line-height:normal;font-weight:normal;color:#fff;text-decoration:none;pointer-events:auto;cursor:pointer}.vast_player_CTA_link{display:flex;flex-direction:row;align-items:center;position:absolute;top:0;left:0;background-color:#f9d300;max-width:40%;z-index:9999}.vast_player_CTA_link--down{bottom:calc(15% + 30px);top:unset}.vast_player_CTA_link--down .vast_player_CTA_link_button{padding:10px}.vast_player_CTA_link::after{content:"→";width:25px;box-sizing:border-box;vertical-align:top;color:#000;font-size:14px}.vast_player_CTA_link_button{display:inline-block;position:relative;box-sizing:border-box;width:100%;max-height:36px;vertical-align:top;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#000;font-size:13px}</style><style>.vast_player{display:flex;flex-direction:column;position:relative;width:100%;height:100%;z-index:999;font-family:Roboto,sans-serif,Verdana,Arial;font-size:13px;overflow:hidden}.vast_player_video{pointer-events:none;width:100%;height:100%;display:block;margin:0px auto}.vast_player_click_link{position:absolute;left:0;z-index:100;height:100%;width:100%}.vast_player_click_link:hover{background:none !important}.vast_player_close{position:absolute;top:0;right:0;pointer-events:auto;padding:5px 10px;user-select:none;color:#fff;background:rgba(88,65,65,.6);cursor:pointer;z-index:9999}.vast_player_close--down{top:unset;bottom:calc(15% + 30px);padding:10px 20px}.vast_player_close_text{position:relative;color:#fff;line-height:normal;font-weight:normal}.vast_player_close_zone{position:absolute;top:unset;bottom:0;right:0;z-index:101;width:180px;height:40%;cursor:pointer}.vast_player_close_zone a{display:block;width:100%;height:100%}.vast_player_progress_wrapper{pointer-events:none;position:absolute;width:calc(100% - 30px);height:3px;left:15px;bottom:10%;background:hsla(0,0%,100%,.25);z-index:1}.vast_player_progress_zone{position:absolute;bottom:0;z-index:100;width:100%;height:60px;cursor:pointer}.vast_player_progress_zone a{display:block;width:100%;height:100%}.vast_player_progressbar{pointer-events:none;width:0%;height:100%;background:rgba(249,211,0,.8);transition:width .6s linear 0s}.vast_player_replay_button{top:50%;left:50%;transform:translate(-50%, -50%);height:70px;width:70px;position:absolute;border-radius:50%;background:rgba(0,0,0,.7);z-index:300}.vast_player_mute_button{border-radius:5px;position:absolute;z-index:300;right:5px;bottom:15%;background:rgba(0,0,0,.7);height:30px;width:30px}.vast_player_mute_button svg{position:absolute;top:50%;left:50%;margin:5% 0 0 -5%;transform:translate(-50%, -50%);fill:#fff;height:24px;width:24px;display:none}.vast_player_content{width:100%;height:100%;display:block;position:absolute;background:rgba(0,0,0,.6);-webkit-tap-highlight-color:rgba(0,0,0,0)}.vast_player_sequence_counter{display:none;position:absolute;bottom:calc(10% + 10px);left:15px;color:#fff;text-shadow:1px 1px 1px #000}.vast_player__vpaid-frame{border:none;display:block;width:100%;height:100%}.vast_player_resume{position:absolute;display:none;inset:0;background:rgba(217,217,217,.3);backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px);align-items:center;justify-content:center;height:100%;width:100%;z-index:500}.vast_player_resume-button{max-width:120px;max-height:120px;width:10dvw}.vast_player_resume-button:hover{cursor:pointer}.vast_player_resume-button svg{width:100%;height:100%}.vast_player_sequence_bars{display:flex;gap:6px;padding:10px;justify-content:center;position:absolute;bottom:10px;left:0;right:0}.vast_player_sequence_bars .sequence_bar{flex:1 1 0;height:6px;background:#fff;border-radius:999px;cursor:pointer;transition:background .2s,transform .2s}.vast_player_sequence_bars .sequence_bar.active{background:#f9d300;transform:scaleY(1.3)}.vast_player .notransition{-webkit-transition:none !important;-moz-transition:none !important;-o-transition:none !important;transition:none !important}</style><script async="" src="https://js.wpushsdk.com/skins/nmain.m.js"></script><style id="">.vD0_gY73Fv9x8G9qX9bM{left:10px}.JbUtDPA_lReHm5g4paFQ{right:10px}.kV5IYPs7lzciKsvl6aWC{top:10px}.bPsOlmvvBxnZUvLikMEM{top:35%}.kV_EoqiIUU3Y9Tas3E97{bottom:10px}.ZmvHzmNqu4nEzmQipMfd{bottom:0}.E5IaTEuzNAtsJSrBDlFn{box-sizing:border-box;color:#2b2b2b;display:block;font-family:Arial,sans-serif;position:fixed;z-index:99999999999}.ZcgZ8eZtSeIO2biv946B{height:255px;width:343px}.ZcgZ8eZtSeIO2biv946B,.xPF9i78tBXIBs5HZy1Y0{background:#fff;box-shadow:0 0 3px 0 #bfbfbf;color:#2b2b2b;direction:ltr}.xPF9i78tBXIBs5HZy1Y0{border-radius:20px;height:256px;width:346px}.TMt6nnoR96yOb6oKZ9Jg{height:100px;max-width:382px;width:382px}.jbKJ4CPwRiYNUmNH7ZfQ,.TMt6nnoR96yOb6oKZ9Jg{color:#2b2b2b;direction:ltr;overflow:hidden}.jbKJ4CPwRiYNUmNH7ZfQ{background:#fff;border-radius:10px;box-shadow:0 0 15px rgba(0,0,0,.1);height:255px;transform-origin:50% 50%;width:343px}.NWMxDz8XDFxh3oY8Xt8V{border-radius:5px;color:#2b2b2b;direction:ltr;height:115px;overflow:hidden;width:385px}.V8805GENgjrXIjiexezL{height:100px;width:382px}.FKE6QEgp0X8in6hK0pmj{border-radius:10px;height:171px;width:352px}.VZUfAGwzO8xh51JaT1dv{aspect-ratio:260/360;height:360px;width:260px}.kG6ZoiNIaUsyfRQiFra0{border-radius:10px;height:160px;width:434px}._ABHlzyNnsUmr8ystObV{border-radius:10px;direction:ltr;height:120px;width:385px}._ABHlzyNnsUmr8ystObV,.MyJliDuJVGKdUmk6lv_0{background:#fff;box-shadow:0 0 15px rgba(0,0,0,.1)}.MyJliDuJVGKdUmk6lv_0{height:191px;width:340px}.imv7hV1o5Sj1YbwFqEjj{box-shadow:none;height:211px}.JJBK1EB_hL4n__AATKwB{height:calc(30dvh + 16px);width:calc(30dvh*1.78 + 28.48px)}.tPyL7TTPKyowd7bZWz89{height:150px;max-height:150px}.tPyL7TTPKyowd7bZWz89,.Cv9Me9guOjT6gYAPFRzv{background-color:transparent;box-shadow:none;color:#2b2b2b;direction:ltr;overflow:hidden;right:10px;width:400px}.Cv9Me9guOjT6gYAPFRzv{height:190px}.uwts5cOkgCIUnKRLb0aX,.BpsijR9ni9l9YrboHKWA{height:100px;max-height:100px;width:300px}.uwts5cOkgCIUnKRLb0aX{box-shadow:0 4px 4px 0 rgba(0,0,0,.25)}.kpldLeCJ4X1Yq1NPUpwe{direction:ltr;height:110px;max-height:130px;width:385px}.ATuyTn6cYBtrsXt5mf1n,.kpldLeCJ4X1Yq1NPUpwe{background:transparent;box-shadow:none;color:#2b2b2b}.ATuyTn6cYBtrsXt5mf1n{height:128px;max-height:128px;width:384px}.NQ6alkHq2U4lSLOovb0Y{background:transparent;border-radius:0;bottom:0;height:100%;left:0;right:0;top:0;width:100%}.izI3LexfrgrCcWcoqc1S,.NQ6alkHq2U4lSLOovb0Y{box-shadow:none;overflow:hidden}.izI3LexfrgrCcWcoqc1S{background-color:transparent;color:#2b2b2b;height:255px;right:10px;width:335px}.dFC_Ie5ruDivMrovM7CS{background:#fff;box-shadow:0 4px 4px 0 rgba(0,0,0,.25);height:100px!important;width:300px}.awDW50rtiSAyCb43RWA3{background:transparent;display:block;height:100%;left:0;position:absolute;top:0;width:100%;z-index:99999999}.rF9SlI5_Hktrp795HzkW,.t1klnvYagWDlXshHXdwe{height:147px;width:335px}.z3sTxQuOTtiSE9OKyy1B{border-radius:18px;filter:drop-shadow(0 2.656px 33.202px rgba(0,0,0,.25));height:100px;overflow:hidden;width:352px}.z3sTxQuOTtiSE9OKyy1B.WZXCSdX_MgYIh6HMs_b0{height:125px}.ilkWFxRIKvqdA1CNIzYJ{border-radius:10px;filter:drop-shadow(0 4px 4px rgba(0,0,0,25%));height:75px;overflow:hidden;width:352px}.ilkWFxRIKvqdA1CNIzYJ.QNawPsi9AOkbVP_7y0iJ{height:99px}.kr2oV_qi31_SE_oqpvek{border-radius:10px;box-shadow:0 0 3px 0 #bfbfbf;height:280px;width:343px}.rJfRKYwD9hoR3Fv8m5Gg{border-radius:10px;height:213px;width:457px}.YiGw2gXmfYMDLE7NsyWL{border-radius:10px;box-shadow:0 0 7px rgb(0 0 0/7%);height:135px;width:343px}.JUcatA6Tw3i57tL_NFxY{height:155px}.tPyL7TTPKyowd7bZWz89.XDeDiYqZq_6JUvK3wTgi{animation:none}.XTW5FHL0HWb5OUsYRvNu{border:none;color-scheme:light;height:100%!important;margin:0;min-width:100%;padding:0;width:100px;*width:100%}.NWMxDz8XDFxh3oY8Xt8V.ZmvHzmNqu4nEzmQipMfd{bottom:10px;left:auto;right:10px}.ZcgZ8eZtSeIO2biv946B.ZmvHzmNqu4nEzmQipMfd{bottom:5px;right:10px}.ffgy1SkHrhuF0EwhM0zg{height:100px;overflow:hidden}.hMGpNlH7jApYi2uFwnjY{position:absolute}.m_ybi_8g_KyxlVbqbduM{animation-duration:1s;animation-fill-mode:both;animation-name:WeF4uUtof3EXppcCzC5l}.a4dgrXgVUyheYLGvYwMw{height:255px;width:315px}.MEvJKMf8d6mOfCMcTTt1{height:130px;width:315px}.O__ZIgwZnZsLwsNvDJmi{border-radius:15px;box-shadow:0 0 9px 2px #8b8b8b;height:211px;width:280px}.QXGnmvpJUpcYumcv02Qx{border-radius:10px;box-shadow:0 0 7px 0 #6d6d6d;height:105px;width:410px}@keyframes WeF4uUtof3EXppcCzC5l{0%{opacity:0;transform:scale3d(.3,.3,.3)}50%{opacity:1}}@keyframes XICLLIRxK3dZ48D_iysa{0%{transform:translateX(400px)}to{transform:translateX(0)}}@keyframes ZyxM4t4KEaxytkb96mP6{0%{transform:translateX(-400px)}to{transform:translateX(0)}}.LJVeY_wbbjI5iwHC_u4k{animation:ZyxM4t4KEaxytkb96mP6 .79s ease 0s 1 normal none}.LJVeY_wbbjI5iwHC_u4k,.XDeDiYqZq_6JUvK3wTgi{transform:translateZ(0);will-change:transform}.XDeDiYqZq_6JUvK3wTgi{animation:XICLLIRxK3dZ48D_iysa .79s ease 0s 1 normal none}@keyframes RpYxvs05CpHhvnQPNPd1{0%{transform:translateY(500px)}to{transform:translateY(0)}}@keyframes iHJH44b56RYw4TIA9fPK{0%{transform:translateY(-500px)}to{transform:translateY(0)}}.RLUdaYDCqut9gFUOcJwJ{animation:iHJH44b56RYw4TIA9fPK .79s;transform:translateZ(0);will-change:transform}@keyframes RwUUPce2ThN_EKj6s7UN{0%{transform:translateY(0)}to{transform:translateY(-1000px)}}@keyframes Harxs01r3k6VUOASVTYQ{0%{transform:translateY(0)}to{transform:translateY(1000px)}}@keyframes zpWxGNDdiTxJv6CRXwRm{0%{transform:translateX(-450px)}to{transform:translateX(0)}}@media screen and (max-width:480px){.tPyL7TTPKyowd7bZWz89{right:0;width:100%}.tPyL7TTPKyowd7bZWz89.aF0YIAxj_swuEtxMw0Ga,.aF0YIAxj_swuEtxMw0Ga,.IS8fscG36wZvEt7Bm1AX{animation:RpYxvs05CpHhvnQPNPd1 .79s}.tPyL7TTPKyowd7bZWz89.aF0YIAxj_swuEtxMw0Ga,.aF0YIAxj_swuEtxMw0Ga,.IS8fscG36wZvEt7Bm1AX,.RLUdaYDCqut9gFUOcJwJ{transform:translateZ(0);will-change:transform}.RLUdaYDCqut9gFUOcJwJ{animation:iHJH44b56RYw4TIA9fPK .79s}.E5IaTEuzNAtsJSrBDlFn{width:100%}.ZcgZ8eZtSeIO2biv946B{max-width:343px}.NWMxDz8XDFxh3oY8Xt8V{width:385px}.kpldLeCJ4X1Yq1NPUpwe{width:100%}.E5IaTEuzNAtsJSrBDlFn.vD0_gY73Fv9x8G9qX9bM,.E5IaTEuzNAtsJSrBDlFn.JbUtDPA_lReHm5g4paFQ{left:0;right:0}.ZcgZ8eZtSeIO2biv946B.ZmvHzmNqu4nEzmQipMfd,.jbKJ4CPwRiYNUmNH7ZfQ.ZmvHzmNqu4nEzmQipMfd,.jbKJ4CPwRiYNUmNH7ZfQ.kV5IYPs7lzciKsvl6aWC{left:calc(50% - 171.5px);right:calc(50% - 171.5px)}.kpldLeCJ4X1Yq1NPUpwe.JbUtDPA_lReHm5g4paFQ{left:auto;right:0;width:95%}.NWMxDz8XDFxh3oY8Xt8V.vD0_gY73Fv9x8G9qX9bM{left:10px}.NWMxDz8XDFxh3oY8Xt8V.ZmvHzmNqu4nEzmQipMfd{bottom:10px}.NWMxDz8XDFxh3oY8Xt8V.ZmvHzmNqu4nEzmQipMfd,.NWMxDz8XDFxh3oY8Xt8V.JbUtDPA_lReHm5g4paFQ{left:auto;right:10px}.kYHBfWCNlEfS2UDi6nu9.vD0_gY73Fv9x8G9qX9bM{left:10px}.kYHBfWCNlEfS2UDi6nu9.ZmvHzmNqu4nEzmQipMfd{bottom:10px;left:auto;right:10px}.kYHBfWCNlEfS2UDi6nu9.JbUtDPA_lReHm5g4paFQ,.SEJ56r_fDLgpYA7zetSg.JbUtDPA_lReHm5g4paFQ{left:auto;right:10px}.SEJ56r_fDLgpYA7zetSg.vD0_gY73Fv9x8G9qX9bM{left:10px}.SEJ56r_fDLgpYA7zetSg.ZmvHzmNqu4nEzmQipMfd{bottom:10px;left:auto;right:10px}.MyJliDuJVGKdUmk6lv_0.JbUtDPA_lReHm5g4paFQ{left:auto;right:10px}.MyJliDuJVGKdUmk6lv_0.vD0_gY73Fv9x8G9qX9bM{left:10px}.MyJliDuJVGKdUmk6lv_0.ZmvHzmNqu4nEzmQipMfd{bottom:10px;left:10px;right:10px;width:calc(100% - 20px)}.yyYICWp6Nx1uAQqpVMVr.JbUtDPA_lReHm5g4paFQ{left:auto;right:10px}.yyYICWp6Nx1uAQqpVMVr.vD0_gY73Fv9x8G9qX9bM{left:10px}.yyYICWp6Nx1uAQqpVMVr.ZmvHzmNqu4nEzmQipMfd{bottom:10px;left:auto;right:10px}.bPsOlmvvBxnZUvLikMEM,.hMGpNlH7jApYi2uFwnjY.bPsOlmvvBxnZUvLikMEM{bottom:5px;top:auto}.kV_EoqiIUU3Y9Tas3E97{bottom:5px}.kV5IYPs7lzciKsvl6aWC{top:10px}.rJfRKYwD9hoR3Fv8m5Gg.kV5IYPs7lzciKsvl6aWC,.kr2oV_qi31_SE_oqpvek.k
+</head>
+
+<body>
+
+  <!-- =========================
+       APP BAR
+  ========================== -->
+
+  <header class="appbar">
+    <div class="bar-inner">
+
+      <div class="brand">
+        <span class="logo">V</span>
+        <span>Vudol</span>
+      </div>
+
+      <div class="spacer"></div>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       BANNER
+  ========================== -->
+
+  <div class="banner">
+    Silakan tekan tombol play untuk menonton video.
+  </div>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+
+  <main class="wrap">
+
+    <section class="player-shell">
+
+      <div class="phone">
+
+        <!-- VIDEO ANDA -->
+        <video
+          id="videoPlayer"
+          controls
+          playsinline
+          preload="metadata"
+          controlsList="nodownload"
+        >
+
+          <source
+            src="VID-20260812-WA0001.mp4"
+            type="video/mp4"
+          >
+
+          Browser Anda tidak mendukung pemutar video.
+
+        </video>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         META
+    ========================== -->
+
+    <div class="meta">
+      <span>Video tersedia untuk ditonton.</span>
+    </div>
+
+
+    <!-- =========================
+         AD SLOT
+    ========================== -->
+
+    <div class="ad-slot">
+      <!-- Tempat iklan jika diperlukan -->
+    </div>
+
+  </main>
+
+
+  <!-- =========================
+       POPUP GATE
+  ========================== -->
+
+  <div id="gate-overlay" hidden></div>
+
+  <div id="gate-modal" hidden>
+
+    <div class="gate-card">
+
+      <button
+        type="button"
+        class="gate-close"
+        id="gateClose"
+        aria-label="Tutup"
+      >
+        ×
+      </button>
+
+      <div class="gate-header">
+
+        <div class="gate-icon">
+          ▶️
+        </div>
+
+        <h3>
+          Siap menonton?
+        </h3>
+
+        <p class="gate-sub">
+          Tekan tombol di bawah untuk melanjutkan.
+        </p>
+
+        <span class="gate-badge">
+          VIDEO
+        </span>
+
+      </div>
+
+      <label class="gate-check">
+
+        <input
+          type="checkbox"
+          id="gateCheck"
+        >
+
+        <span>
+          Saya siap menonton video.
+        </span>
+
+      </label>
+
+      <div class="gate-actions">
+
+        <button
+          type="button"
+          class="gate-btn"
+          id="gateContinue"
+          disabled
+        >
+          Lanjutkan
+        </button>
+
+        <button
+          type="button"
+          class="gate-btn ghost"
+          id="gateCancel"
+        >
+          Batal
+        </button>
+
+      </div>
+
+      <div class="gate-footnote">
+        <span class="dot"></span>
+        Pemutar video siap digunakan.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    const video = document.getElementById("videoPlayer");
+
+    const gateModal =
+      document.getElementById("gate-modal");
+
+    const gateOverlay =
+      document.getElementById("gate-overlay");
+
+    const gateCheck =
+      document.getElementById("gateCheck");
+
+    const gateContinue =
+      document.getElementById("gateContinue");
+
+    const gateClose =
+      document.getElementById("gateClose");
+
+    const gateCancel =
+      document.getElementById("gateCancel");
+
+
+    /*
+      Aktifkan tombol Lanjutkan
+      setelah checkbox dicentang.
+    */
+
+    gateCheck.addEventListener("change", function () {
+
+      gateContinue.disabled = !this.checked;
+
+    });
+
+
+    /*
+      Tampilkan popup
+    */
+
+    function openGate() {
+
+      gateModal.hidden = false;
+      gateOverlay.hidden = false;
+
+    }
+
+
+    /*
+      Tutup popup
+    */
+
+    function closeGate() {
+
+      gateModal.hidden = true;
+      gateOverlay.hidden = true;
+
+    }
+
+
+    /*
+      Tombol lanjutkan
+    */
+
+    gateContinue.addEventListener("click", function () {
+
+      closeGate();
+
+      video.play().catch(function () {
+        // Browser dapat memerlukan interaksi pengguna.
+      });
+
+    });
+
+
+    /*
+      Tombol tutup
+    */
+
+    gateClose.addEventListener(
+      "click",
+      closeGate
+    );
+
+
+    gateCancel.addEventListener(
+      "click",
+      closeGate
+    );
+
+
+    /*
+      Overlay
+    */
+
+    gateOverlay.addEventListener(
+      "click",
+      closeGate
+    );
+
+
+    /*
+      Ketika video selesai,
+      posisi kembali ke awal.
+    */
+
+    video.addEventListener("ended", function () {
+
+      video.currentTime = 0;
+
+    });
+
+
+    /*
+      Jika file video gagal dimuat,
+      tampilkan pesan sederhana.
+    */
+
+    video.addEventListener("error", function () {
+
+      console.log(
+        "Video tidak dapat dimuat: VID-20260812-WA0001.mp4"
+      );
+
+    });
+
+  </script>
+
+</body>
+</html>
