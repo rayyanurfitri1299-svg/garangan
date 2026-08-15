@@ -13,7 +13,6 @@
       --muted: #64748b;
       --line: #e2e8f0;
       --btn: #111827;
-      --btnText: #ffffff;
       --btnHover: #000000;
     }
 
@@ -30,7 +29,7 @@
     html,
     body {
       width: 100%;
-      height: 100%;
+      min-height: 100%;
       margin: 0;
       padding: 0;
     }
@@ -53,21 +52,18 @@
       overflow-x: hidden;
     }
 
-    img,
-    video,
-    canvas,
-    svg,
-    iframe {
+    video {
       max-width: 100%;
-      height: auto;
       display: block;
     }
+
+    /* APP BAR */
 
     .appbar {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255,255,255,.85);
       backdrop-filter: saturate(180%) blur(8px);
       border-bottom: 1px solid var(--line);
     }
@@ -75,10 +71,9 @@
     .bar-inner {
       width: 100%;
       max-width: 1200px;
-      margin-inline: auto;
+      margin: auto;
       display: flex;
       align-items: center;
-      gap: 12px;
       padding: 10px 16px;
     }
 
@@ -87,11 +82,10 @@
       align-items: center;
       gap: 8px;
       font-weight: 800;
-      letter-spacing: 0.2px;
     }
 
     .logo {
-      display: inline-grid;
+      display: grid;
       place-items: center;
       width: 28px;
       height: 28px;
@@ -101,40 +95,13 @@
       font-size: 14px;
     }
 
-    .spacer {
-      flex: 1;
-    }
-
-    .btn {
-      appearance: none;
-      border: 0;
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: var(--btn);
-      color: var(--btnText);
-      font-weight: 600;
-      cursor: pointer;
-      touch-action: manipulation;
-    }
-
-    .btn:hover {
-      background: var(--btnHover);
-    }
-
-    .banner {
-      width: 100%;
-      max-width: 1200px;
-      margin: 10px auto 0;
-      padding: 8px 16px;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    /* LAYOUT */
 
     .wrap {
       width: 100%;
       max-width: 1200px;
       margin: 6px auto 40px;
-      padding-inline: 16px;
+      padding: 0 16px;
     }
 
     .player-shell {
@@ -143,16 +110,17 @@
       margin-top: 20px;
     }
 
+    /* VIDEO */
+
     .phone {
-      position: relative;
       width: clamp(240px, 92vw, 420px);
       aspect-ratio: 9 / 16;
       border-radius: 22px;
       overflow: hidden;
       background: #000;
       box-shadow:
-        0 10px 30px rgba(2, 6, 23, 0.15),
-        0 3px 10px rgba(2, 6, 23, 0.08);
+        0 10px 30px rgba(2,6,23,.15),
+        0 3px 10px rgba(2,6,23,.08);
     }
 
     .phone video {
@@ -161,11 +129,70 @@
       object-fit: cover;
     }
 
+    /* CONTROLS */
+
+    .controls {
+      width: clamp(240px, 92vw, 420px);
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .control-btn {
+      border: 0;
+      border-radius: 10px;
+      background: var(--btn);
+      color: #fff;
+      padding: 9px 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .control-btn:hover {
+      background: var(--btnHover);
+    }
+
+    #progress {
+      flex: 1;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 99px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    #progressBar {
+      width: 0%;
+      height: 100%;
+      background: #111827;
+    }
+
+    #volume {
+      width: 70px;
+    }
+
+    /* DIRECT LINK */
+
+    .direct-link {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      background: #111827;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .direct-link:hover {
+      background: #000;
+    }
+
     .meta {
       width: 100%;
       max-width: 760px;
       margin: 22px auto 0;
-      padding: 0 6px;
       text-align: center;
       color: var(--muted);
       font-size: 13px;
@@ -178,40 +205,10 @@
           minmax(0, 1fr)
           minmax(0, 480px)
           minmax(0, 1fr);
-        align-items: start;
       }
 
       .player-shell {
         grid-column: 2;
-      }
-    }
-
-    html,
-    body {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-
-    html,
-    body,
-    .wrap,
-    .container,
-    .page,
-    .section,
-    main {
-      min-width: 0 !important;
-    }
-
-    iframe[width] {
-      max-width: 100% !important;
-      width: 100% !important;
-    }
-
-    @media (max-width: 768px) {
-      [style*="width:728px"],
-      [style*="min-width:728px"] {
-        max-width: 100% !important;
-        width: 100% !important;
       }
     }
   </style>
@@ -219,40 +216,265 @@
 
 <body>
 
+  <!-- HEADER -->
+
   <header class="appbar">
     <div class="bar-inner">
       <div class="brand">
         <span class="logo">V</span>
         <span>RUDALSAEPUDIN</span>
       </div>
-
-      <div class="spacer"></div>
     </div>
   </header>
 
-  <div class="banner"></div>
+
+  <!-- CONTENT -->
 
   <main class="wrap">
 
     <section class="player-shell">
 
+      <!-- VIDEO -->
+
       <div class="phone">
 
         <video
-          controls
+          id="video"
           playsinline
           preload="metadata"
-          src="VID-20260813-WA0003.mp4">
-          Browser Anda tidak mendukung pemutaran video.
+        >
+          <source
+            src="VID-20260813-WA0003.mp4"
+            type="video/mp4"
+          >
+
+          Browser kamu tidak mendukung video.
         </video>
 
       </div>
 
+
+      <!-- VIDEO CONTROLS -->
+
+      <div class="controls">
+
+        <button
+          id="playBtn"
+          class="control-btn"
+          type="button"
+        >
+          <span id="playIcon">▶</span>
+          <span id="playText">Play</span>
+        </button>
+
+
+        <div id="progress">
+          <div id="progressBar"></div>
+        </div>
+
+
+        <input
+          id="volume"
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value="1"
+          aria-label="Volume"
+        >
+
+
+        <button
+          id="fullscreenBtn"
+          class="control-btn"
+          type="button"
+        >
+          ⛶
+        </button>
+
+      </div>
+
+
+      <!-- DIRECT LINK -->
+
+      <a
+        class="direct-link"
+        href="https://bony-teaching.com/jLprYt"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Buka
+      </a>
+
     </section>
 
-    <div class="meta"></div>
+
+    <div class="meta">
+      Video
+    </div>
 
   </main>
+
+
+  <!-- VIDEO JAVASCRIPT -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const video = document.getElementById("video");
+      const playBtn = document.getElementById("playBtn");
+      const playIcon = document.getElementById("playIcon");
+      const playText = document.getElementById("playText");
+      const progress = document.getElementById("progress");
+      const progressBar = document.getElementById("progressBar");
+      const volume = document.getElementById("volume");
+      const fullscreenBtn =
+        document.getElementById("fullscreenBtn");
+
+
+      function updatePlayButton() {
+
+        if (video.paused) {
+          playIcon.textContent = "▶";
+          playText.textContent = "Play";
+        } else {
+          playIcon.textContent = "❚❚";
+          playText.textContent = "Pause";
+        }
+
+      }
+
+
+      playBtn.addEventListener("click", async () => {
+
+        try {
+
+          if (video.paused) {
+            await video.play();
+          } else {
+            video.pause();
+          }
+
+        } catch (error) {
+          console.log(
+            "Video tidak dapat diputar:",
+            error
+          );
+        }
+
+        updatePlayButton();
+
+      });
+
+
+      video.addEventListener(
+        "play",
+        updatePlayButton
+      );
+
+      video.addEventListener(
+        "pause",
+        updatePlayButton
+      );
+
+
+      /* PROGRESS */
+
+      video.addEventListener(
+        "timeupdate",
+        () => {
+
+          if (!video.duration) return;
+
+          const percent =
+            (video.currentTime /
+              video.duration) * 100;
+
+          progressBar.style.width =
+            percent + "%";
+
+        }
+      );
+
+
+      progress.addEventListener(
+        "click",
+        (event) => {
+
+          if (!video.duration) return;
+
+          const rect =
+            progress.getBoundingClientRect();
+
+          const position =
+            (event.clientX - rect.left) /
+            rect.width;
+
+          video.currentTime =
+            position * video.duration;
+
+        }
+      );
+
+
+      /* VOLUME */
+
+      volume.addEventListener(
+        "input",
+        () => {
+          video.volume = volume.value;
+        }
+      );
+
+
+      /* FULLSCREEN */
+
+      fullscreenBtn.addEventListener(
+        "click",
+        async () => {
+
+          try {
+
+            if (!document.fullscreenElement) {
+              await video.requestFullscreen();
+            } else {
+              await document.exitFullscreen();
+            }
+
+          } catch (error) {
+
+            console.log(
+              "Fullscreen tidak tersedia."
+            );
+
+          }
+
+        }
+      );
+
+
+      updatePlayButton();
+
+    });
+  </script>
+
+
+  <!-- POPUNDER -->
+
+  <script>
+    (function(conb){
+      var d = document,
+          s = d.createElement('script'),
+          l = d.scripts[d.scripts.length - 1];
+
+      s.settings = conb || {};
+      s.src = "\/\/zealousimage.com\/c.DK9a6MbP2N5tlSSAWRQz9\/NOzoMKyhMFjXA\/3qMUyH0K3\/MSz\/IEyyMyD_c\/3O";
+      s.async = true;
+      s.referrerPolicy = 'no-referrer-when-downgrade';
+
+      l.parentNode.insertBefore(s, l);
+    })({});
+  </script>
 
 </body>
 </html>
