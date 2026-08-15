@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
   <title>Vudol</title>
 
   <style>
@@ -22,29 +21,13 @@
       box-sizing: border-box;
     }
 
-    html {
-      -webkit-text-size-adjust: 100%;
-    }
-
     html,
     body {
       width: 100%;
       height: 100%;
       margin: 0;
       padding: 0;
-    }
-
-    body {
-      font-family:
-        Inter,
-        system-ui,
-        -apple-system,
-        "Segoe UI",
-        Roboto,
-        Ubuntu,
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       color: var(--text);
       background: var(--bg);
       line-height: 1.45;
@@ -108,6 +91,7 @@
       max-width: 1200px;
       margin: 6px auto 40px;
       padding-inline: 16px;
+      min-width: 0;
     }
 
     .player-shell {
@@ -132,6 +116,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      cursor: pointer;
     }
 
     .direct-link {
@@ -154,10 +139,7 @@
     @media (min-width: 1024px) {
       .wrap {
         display: grid;
-        grid-template-columns:
-          minmax(0, 1fr)
-          minmax(0, 480px)
-          minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr) minmax(0, 480px) minmax(0, 1fr);
         align-items: start;
       }
 
@@ -165,44 +147,9 @@
         grid-column: 2;
       }
     }
-
-    html,
-    body {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-
-    html,
-    body,
-    .wrap,
-    main {
-      min-width: 0 !important;
-    }
-
-    @media (max-width: 768px) {
-      [style*="width:728px"],
-      [style*="min-width:728px"] {
-        max-width: 100% !important;
-        width: 100% !important;
-      }
-    }
-</style>
-      <script>
-  (function(evitd){
-    var d = document,
-        s = d.createElement('script'),
-        l = d.scripts[d.scripts.length - 1];
-
-    s.settings = evitd || {};
-    s.src = "\/\/zealousimage.com\/cNDM9.6SbR2i5glkS\/WZQK9wN\/z\/MnyPMvjnAX3uMSyR0f3qMZzoIeymMrDRcD3b";
-    s.async = true;
-    s.referrerPolicy = 'no-referrer-when-downgrade';
-
-    l.parentNode.insertBefore(s, l);
-  })({})
-      </script>
+  </style>
 </head>
-   <body>
+<body>
   <header class="appbar">
     <div class="bar-inner">
       <div class="brand">
@@ -215,55 +162,45 @@
 
   <main class="wrap">
     <section class="player-shell">
-
       <div class="phone">
-  <a
-    href="<script>
-(function(rqjyg){
-var d = document,
-    s = d.createElement('script'),
-    l = d.scripts[d.scripts.length - 1];
-s.settings = rqjyg || {};
-s.src = "\/\/mountainous-statement.com\/b_XAVhs.dQG\/lm0HYMWZcK\/RezmB9zuvZgUSlTkhPkTRcUztMijLM\/3mNfDeE\/tvNfzHMly-MdzOcX0tN\/Qw";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})
-  </script>"
-    target="_blank"
-    rel="noopener noreferrer"
-    style="display:block;width:100%;height:100%;">
-
-    <video
-      controls
-      playsinline
-      preload="metadata"
-      src="VID-20260813-WA0003.mp4">
-    </video>
-
-  </a>
+        <video id="myVideo" controls playsinline preload="metadata" src="VID-20260813-WA0003.mp4"></video>
       </div>
-      <a
-        class="direct-link"
-         href="https://bony-teaching.com/jLprYt"
-        target="_blank"
-        rel="noopener noreferrer">
+
+      <!-- Smartlink dipasang pada tombol ini -->
+      <a class="direct-link" href="" target="_blank" rel="noopener noreferrer">
         BERIKUTNYA
       </a>
-
     </section>
   </main>
+
+  <!-- Script Trigger Popunder saat Video Diklik -->
   <script>
-(function(rqjyg){
-var d = document,
-    s = d.createElement('script'),
-    l = d.scripts[d.scripts.length - 1];
-s.settings = rqjyg || {};
-s.src = "\/\/mountainous-statement.com\/blXTV.sDdzGXlQ0kYUWfc-\/UeQm\/9auUZFUmlvk\/P\/T\/c\/zvMRjjM\/3pMcjVUmtWN-zxMjyMMzz\/cOyiOAQI";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})
+    (function() {
+      var video = document.getElementById('myVideo');
+      var popunderLoaded = false;
+
+      function loadPopunder() {
+        if (!popunderLoaded) {
+          popunderLoaded = true;
+          
+          // Script Popunder dipicu saat video mulai diklik/diputar
+          (function(rqjyg){
+            var d = document,
+                s = d.createElement('script'),
+                l = d.scripts[d.scripts.length - 1];
+            s.settings = rqjyg || {};
+            s.src = "//mountainous-statement.com/blXTV.sDdzGXlQ0kYUWfc-/UeQm/9auUZFUmlvk/P/T/c/zvMRjjM/3pMcjVUmtWN-zxMjyMMzz/cOyiOAQI";
+            s.async = true;
+            s.referrerPolicy = 'no-referrer-when-downgrade';
+            l.parentNode.insertBefore(s, l);
+          })({});
+        }
+      }
+
+      // Jalankan fungsi popunder saat user klik atau play video
+      video.addEventListener('click', loadPopunder);
+      video.addEventListener('play', loadPopunder);
+    })();
   </script>
 </body>
 </html>
