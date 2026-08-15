@@ -15,90 +15,38 @@
       --btnHover: #000000;
     }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
 
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.45;
-      overflow-x: hidden;
-    }
-
-    img,
-    video,
-    canvas,
-    svg,
-    iframe {
-      max-width: 100%;
-      height: auto;
-      display: block;
+    html, body {
+      width: 100%; height: 100%; margin: 0; padding: 0;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      color: var(--text); background: var(--bg); line-height: 1.45; overflow-x: hidden;
     }
 
     .appbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
+      position: sticky; top: 0; z-index: 20;
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: saturate(180%) blur(8px);
       border-bottom: 1px solid var(--line);
     }
 
     .bar-inner {
-      width: 100%;
-      max-width: 1200px;
-      margin-inline: auto;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 16px;
+      width: 100%; max-width: 1200px; margin-inline: auto;
+      display: flex; align-items: center; gap: 12px; padding: 10px 16px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 800;
-      letter-spacing: 0.2px;
-    }
+    .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; }
 
     .logo {
-      display: inline-grid;
-      place-items: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-      background: #111827;
-      color: #fff;
-      font-size: 14px;
+      display: inline-grid; place-items: center; width: 28px; height: 28px;
+      border-radius: 6px; background: #111827; color: #fff; font-size: 14px;
     }
 
-    .spacer {
-      flex: 1;
-    }
+    .spacer { flex: 1; }
 
-    .wrap {
-      width: 100%;
-      max-width: 1200px;
-      margin: 6px auto 40px;
-      padding-inline: 16px;
-      min-width: 0;
-    }
+    .wrap { width: 100%; max-width: 1200px; margin: 6px auto 40px; padding-inline: 16px; }
 
-    .player-shell {
-      display: grid;
-      place-items: center;
-      margin-top: 20px;
-    }
+    .player-shell { display: grid; place-items: center; margin-top: 20px; }
 
     .phone {
       position: relative;
@@ -107,59 +55,34 @@
       border-radius: 22px;
       overflow: hidden;
       background: #000;
-      box-shadow:
-        0 10px 30px rgba(2, 6, 23, 0.15),
-        0 3px 10px rgba(2, 6, 23, 0.08);
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.15);
     }
 
-    .phone video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .phone video { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Overlay transparan pemicu Popunder saat klik pertama */
+    .video-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 10;
+      background: rgba(0,0,0,0.01);
       cursor: pointer;
     }
 
     .direct-link {
-      display: block;
-      width: clamp(240px, 92vw, 420px);
-      margin-top: 16px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      background: var(--btn);
-      color: var(--btnText);
-      text-align: center;
-      text-decoration: none;
-      font-weight: 600;
+      display: block; width: clamp(240px, 92vw, 420px);
+      margin-top: 16px; padding: 12px 16px; border-radius: 12px;
+      background: var(--btn); color: var(--btnText); text-align: center;
+      text-decoration: none; font-weight: 600;
     }
 
-    .direct-link:hover {
-      background: var(--btnHover);
-    }
+    .direct-link:hover { background: var(--btnHover); }
 
     @media (min-width: 1024px) {
-      .wrap {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 480px) minmax(0, 1fr);
-        align-items: start;
-      }
-
-      .player-shell {
-        grid-column: 2;
-      }
+      .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 480px) minmax(0, 1fr); }
+      .player-shell { grid-column: 2; }
     }
   </style>
-  <script>
-(function(fdvd){
-var d = document,
-    s = d.createElement('script'),
-    l = d.scripts[d.scripts.length - 1];
-s.settings = fdvd || {};
-s.src = "\/\/zealousimage.com\/cTDJ9\/6Lb.2N5ulPSOWkQS9QN\/zZM\/yeMWj_AA3XMwyV0M3bMIzMI_yXMMD\/cm3g";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})
-  </script>
 </head>
 <body>
   <header class="appbar">
@@ -175,44 +98,57 @@ l.parentNode.insertBefore(s, l);
   <main class="wrap">
     <section class="player-shell">
       <div class="phone">
+        <!-- Overlay penangkap klik video -->
+        <div id="videoOverlay" class="video-overlay"></div>
         <video id="myVideo" controls playsinline preload="metadata" src="VID-20260813-WA0003.mp4"></video>
       </div>
 
-      <!-- Smartlink dipasang pada tombol ini -->
+      <!-- Smartlink Tombol BERIKUTNYA -->
       <a class="direct-link" href="https://bony-teaching.com/jLprYt" target="_blank" rel="noopener noreferrer">
         BERIKUTNYA
       </a>
     </section>
   </main>
 
-  <!-- Script Trigger Popunder saat Video Diklik -->
+  <!-- POPUNDER 1 (zealousimage.com) -->
   <script>
-    (function() {
-      var video = document.getElementById('myVideo');
-      var popunderLoaded = false;
+    (function(fdvd){
+      var d = document,
+          s = d.createElement('script'),
+          l = d.scripts[d.scripts.length - 1];
+      s.settings = fdvd || {};
+      s.src = "//zealousimage.com/cTDJ9/6Lb.2N5ulPSOWkQS9QN/zZM/yeMWj_AA3XMwyV0M3bMIzMI_yXMMD/cm3g";
+      s.async = true;
+      s.referrerPolicy = 'no-referrer-when-downgrade';
+      l.parentNode.insertBefore(s, l);
+    })({});
+  </script>
 
-      function loadPopunder() {
-        if (!popunderLoaded) {
-          popunderLoaded = true;
-          
-          // Script Popunder dipicu saat video mulai diklik/diputar
-          (function(rqjyg){
-            var d = document,
-                s = d.createElement('script'),
-                l = d.scripts[d.scripts.length - 1];
-            s.settings = rqjyg || {};
-            s.src = "//mountainous-statement.com/blXTV.sDdzGXlQ0kYUWfc-/UeQm/9auUZFUmlvk/P/T/c/zvMRjjM/3pMcjVUmtWN-zxMjyMMzz/cOyiOAQI";
-            s.async = true;
-            s.referrerPolicy = 'no-referrer-when-downgrade';
-            l.parentNode.insertBefore(s, l);
-          })({});
-        }
-      }
+  <!-- POPUNDER 2 / BENER (mountainous-statement.com) -->
+  <script>
+    (function(fdvd){
+      var d = document,
+          s = d.createElement('script'),
+          l = d.scripts[d.scripts.length - 1];
+      s.settings = fdvd || {};
+      s.src = "//mountainous-statement.com/brXBVlsYd.G-l_0/YDW-ce/ZeYm/9/uvZCUHlnkaPbTJc/zqMZjFMV3rMxjIUIt/Nrz/M/y/MozKc/y/O/Qd";
+      s.async = true;
+      s.referrerPolicy = 'no-referrer-when-downgrade';
+      l.parentNode.insertBefore(s, l);
+    })({});
+  </script>
 
-      // Jalankan fungsi popunder saat user klik atau play video
-      video.addEventListener('click', loadPopunder);
-      video.addEventListener('play', loadPopunder);
-    })();
+  <!-- Logika Klik Pemutar Video -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var overlay = document.getElementById("videoOverlay");
+      var video = document.getElementById("myVideo");
+
+      overlay.addEventListener("click", function () {
+        overlay.style.display = "none";
+        video.play();
+      });
+    });
   </script>
 </body>
 </html>
