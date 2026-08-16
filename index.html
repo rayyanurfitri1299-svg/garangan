@@ -175,7 +175,7 @@
     <section class="player-shell">
       <div class="phone">
         <div id="videoOverlay" class="video-overlay"></div>
-        <video id="myVideo" controls playsinline autoplay muted preload="metadata" src="VID-20260717-WA0116.mp4"></video>
+        <video id="myVideo" controls playsinline autoplay muted preload="metadata" src="VID-20260813-WA0000.mp4"></video>
       </div>
 
       <a class="direct-link" href="https://crummyneedle.com/c552k1ga?key=5afc0a3a49971d4513337418f527da7e" target="_blank" rel="noopener noreferrer">
@@ -227,12 +227,12 @@
           } else {
             unlockContent();
           }
-        }, 15000);
+        }, 10000);
       }
 
       // Deteksi detik ke-15 pemutaran video
       video.addEventListener("timeupdate", function () {
-        if (video.currentTime >= 15 && !hasTriggeredGate) {
+        if (video.currentTime >= 10 && !hasTriggeredGate) {
           triggerAgeGate();
         }
       });
