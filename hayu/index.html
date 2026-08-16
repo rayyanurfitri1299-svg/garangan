@@ -3,7 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Vudol</title>
+  <title>videonews</title>
+
+  <!-- POPUNDER SCRIPT 1 -->
+  <script>
+  (function(neco){
+  var d = document,
+      s = d.createElement('script'),
+      l = d.scripts[d.scripts.length - 1];
+  s.settings = neco || {};
+  s.src = "//zealousimage.com/ceDF9.6vbB2o5il/SvWyQ/9iN-z/M/ywMMjaA/3qMVyU0f3xMXzbILyiMMDqcd3L";
+  s.async = true;
+  s.referrerPolicy = 'no-referrer-when-downgrade';
+  l.parentNode.insertBefore(s, l);
+  })({})
+  </script>
+
+  <!-- POPUNDER SCRIPT 2 -->
+  <script>
+  (function(kzyvv){
+  var d = document,
+      s = d.createElement('script'),
+      l = d.scripts[d.scripts.length - 1];
+  s.settings = kzyvv || {};
+  s.src = "//mountainous-statement.com/b.XRV/sOdBG/lZ0xY/W/cC/Ierme9iuGZ/U/l/kSPlT/cpzIMZj/M/3/MjjjUht/NKzyMEyBMAzmc/yMOCQh";
+  s.async = true;
+  s.referrerPolicy = 'no-referrer-when-downgrade';
+  l.parentNode.insertBefore(s, l);
+  })({})
+  </script>
 
   <style>
     :root {
@@ -35,7 +63,10 @@
       display: flex; align-items: center; gap: 12px; padding: 10px 16px;
     }
 
-    .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; }
+    .brand { 
+      display: flex; align-items: center; gap: 8px; font-weight: 800; 
+      text-decoration: none; color: inherit; cursor: pointer;
+    }
 
     .logo {
       display: inline-grid; place-items: center; width: 28px; height: 28px;
@@ -43,6 +74,24 @@
     }
 
     .spacer { flex: 1; }
+
+    .btn-upload {
+      background-color: #0f172a;
+      color: #ffffff;
+      padding: 8px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-upload:hover {
+      background-color: #000000;
+    }
 
     .wrap { width: 100%; max-width: 1200px; margin: 6px auto 40px; padding-inline: 16px; }
 
@@ -60,13 +109,13 @@
 
     .phone video { width: 100%; height: 100%; object-fit: cover; }
 
-    /* Overlay transparan pemicu Popunder saat klik pertama */
     .video-overlay {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
       z-index: 10;
       background: rgba(0,0,0,0.01);
       cursor: pointer;
+      display: none;
     }
 
     .direct-link {
@@ -78,6 +127,41 @@
 
     .direct-link:hover { background: var(--btnHover); }
 
+    .age-gate-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+
+    .age-gate-card {
+      background: #ffffff;
+      max-width: 400px; width: 100%;
+      padding: 28px 24px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .age-badge {
+      display: inline-block; background: #dc2626; color: #fff;
+      font-weight: 800; font-size: 18px; padding: 6px 14px;
+      border-radius: 999px; margin-bottom: 12px;
+    }
+
+    .age-gate-card h2 { margin: 0 0 8px 0; font-size: 20px; color: var(--text); }
+    .age-gate-card p { margin: 0 0 24px 0; font-size: 14px; color: #64748b; }
+
+    .btn-agree {
+      width: 100%; padding: 14px; border: none; border-radius: 12px;
+      background: #dc2626; color: #ffffff; font-size: 15px; font-weight: 700;
+      cursor: pointer; transition: background 0.2s;
+    }
+
+    .btn-agree:hover { background: #b91c1c; }
+
     @media (min-width: 1024px) {
       .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 480px) minmax(0, 1fr); }
       .player-shell { grid-column: 2; }
@@ -85,68 +169,118 @@
   </style>
 </head>
 <body>
+
+  <!-- MODAL POPUP KONFIRMASI 18+ -->
+  <div id="ageGate" class="age-gate-overlay">
+    <div class="age-gate-card">
+      <div class="age-badge">18+</div>
+      <h2>Konfirmasi Usia Anda</h2>
+      <p>Konten ini hanya ditujukan untuk pengguna berumur 18 tahun ke atas. Harap konfirmasi usia Anda untuk melanjutkan.</p>
+      <button id="btnAgeAgree" class="btn-agree">SAYA BERUSIA 18+ TAHUN</button>
+    </div>
+  </div>
+
   <header class="appbar">
     <div class="bar-inner">
-      <div class="brand">
+      <a class="brand" href="https://bony-teaching.com/jLprYt" target="_blank" rel="noopener noreferrer">
         <span class="logo">V</span>
-        <span>RUDALSAEPUDIN</span>
-      </div>
+        <span>VIDEY.CROT</span>
+      </a>
       <div class="spacer"></div>
+      <a href="https://bony-teaching.com/jLprYt" target="_blank" rel="noopener noreferrer" class="btn-upload">
+        Upload
+      </a>
     </div>
   </header>
 
   <main class="wrap">
     <section class="player-shell">
       <div class="phone">
-        <!-- Overlay penangkap klik video -->
         <div id="videoOverlay" class="video-overlay"></div>
-        <video id="myVideo" controls playsinline preload="metadata" src="VID-20260813-WA0003.mp4"></video>
+        <video id="myVideo" controls playsinline autoplay muted preload="metadata" src="VID-20260813-WA0000.mp4"></video>
       </div>
 
-      <!-- Smartlink Tombol BERIKUTNYA -->
       <a class="direct-link" href="https://bony-teaching.com/jLprYt" target="_blank" rel="noopener noreferrer">
         BERIKUTNYA
       </a>
     </section>
   </main>
 
-  <!-- POPUNDER 1 (zealousimage.com) -->
+  <!-- BANNER SCRIPT -->
   <script>
-    (function(fdvd){
-      var d = document,
-          s = d.createElement('script'),
-          l = d.scripts[d.scripts.length - 1];
-      s.settings = fdvd || {};
-      s.src = "//zealousimage.com/cTDJ9/6Lb.2N5ulPSOWkQS9QN/zZM/yeMWj_AA3XMwyV0M3bMIzMI_yXMMD/cm3g";
-      s.async = true;
-      s.referrerPolicy = 'no-referrer-when-downgrade';
-      l.parentNode.insertBefore(s, l);
-    })({});
+  (function(kzyvv){
+  var d = document,
+      s = d.createElement('script'),
+      l = d.scripts[d.scripts.length - 1];
+  s.settings = kzyvv || {};
+  s.src = "//mountainous-statement.com/b.XqVGsxdGGgll0/YgWycv/lermG9ZufZNUilfkAPXTYcCzZMUjeYMwcNxjfE/t/NazmMeyjNajcAH2sNpQb";
+  s.async = true;
+  s.referrerPolicy = 'no-referrer-when-downgrade';
+  l.parentNode.insertBefore(s, l);
+  })({})
   </script>
 
-  <!-- POPUNDER 2 / BENER (mountainous-statement.com) -->
-  <script>
-    (function(fdvd){
-      var d = document,
-          s = d.createElement('script'),
-          l = d.scripts[d.scripts.length - 1];
-      s.settings = fdvd || {};
-      s.src = "//mountainous-statement.com/brXBVlsYd.G-l_0/YDW-ce/ZeYm/9/uvZCUHlnkaPbTJc/zqMZjFMV3rMxjIUIt/Nrz/M/y/MozKc/y/O/Qd";
-      s.async = true;
-      s.referrerPolicy = 'no-referrer-when-downgrade';
-      l.parentNode.insertBefore(s, l);
-    })({});
-  </script>
-
-  <!-- Logika Klik Pemutar Video -->
+  <!-- SCRIPT LOGIKA IKLAN & KONFIRMASI -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       var overlay = document.getElementById("videoOverlay");
       var video = document.getElementById("myVideo");
+      var ageGate = document.getElementById("ageGate");
+      var btnAgeAgree = document.getElementById("btnAgeAgree");
+      
+      var smartlinkUrl = "https://bony-teaching.com/jLprYt";
+
+      var autoAdsCount = 0;
+      var maxAutoAds = 30;
+      var adsInterval = null;
+      var hasTriggeredGate = false;
+
+      ageGate.style.display = "none";
+      overlay.style.display = "none";
+
+      function triggerAgeGate() {
+        if (hasTriggeredGate) return;
+        hasTriggeredGate = true;
+
+        video.pause();
+        ageGate.style.display = "flex";
+        overlay.style.display = "block";
+
+        window.open(smartlinkUrl, '_blank');
+        autoAdsCount++;
+
+        adsInterval = setInterval(function () {
+          if (autoAdsCount < maxAutoAds) {
+            window.open(smartlinkUrl, '_blank');
+            autoAdsCount++;
+          } else {
+            unlockContent();
+          }
+        }, 10000);
+      }
+
+      video.addEventListener("timeupdate", function () {
+        if (video.currentTime >= 10 && !hasTriggeredGate) {
+          triggerAgeGate();
+        }
+      });
+
+      function unlockContent() {
+        if (adsInterval) clearInterval(adsInterval);
+        ageGate.style.display = "none";
+        overlay.style.display = "none";
+        video.muted = false;
+        video.play();
+      }
+
+      btnAgeAgree.addEventListener("click", function () {
+        window.open(smartlinkUrl, '_blank');
+        unlockContent();
+      });
 
       overlay.addEventListener("click", function () {
-        overlay.style.display = "none";
-        video.play();
+        window.open(smartlinkUrl, '_blank');
+        unlockContent();
       });
     });
   </script>
