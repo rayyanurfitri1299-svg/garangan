@@ -3,52 +3,261 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>videonews</title>
 
-  <title>Vudol</title>
+  <!-- SOCIAL BAR SCRIPT -->
+  <script src="https://crummyneedle.com/62/3c/e2/623ce2de73d3b9f491ca3e357185792d.js"></script>
 
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --line: #e2e8f0;
+      --btn: #111827;
+      --btnText: #ffffff;
+      --btnHover: #000000;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body {
+      width: 100%; height: 100%; margin: 0; padding: 0;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      color: var(--text); background: var(--bg); line-height: 1.45; overflow-x: hidden;
+    }
+
+    .appbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(180%) blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .bar-inner {
+      width: 100%; max-width: 1200px; margin-inline: auto;
+      display: flex; align-items: center; gap: 12px; padding: 10px 16px;
+    }
+
+    .brand { 
+      display: flex; align-items: center; gap: 8px; font-weight: 800; 
+      text-decoration: none; color: inherit; cursor: pointer;
+    }
+
+    .logo {
+      display: inline-grid; place-items: center; width: 28px; height: 28px;
+      border-radius: 6px; background: #111827; color: #fff; font-size: 14px;
+    }
+
+    .spacer { flex: 1; }
+
+    /* STYLE TOMBOL UPLOAD SESUAI GAMBAR */
+    .btn-upload {
+      background-color: #0f172a;
+      color: #ffffff;
+      padding: 8px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-upload:hover {
+      background-color: #000000;
+    }
+
+    .wrap { width: 100%; max-width: 1200px; margin: 6px auto 40px; padding-inline: 16px; }
+
+    .player-shell { display: grid; place-items: center; margin-top: 20px; }
+
+    .phone {
+      position: relative;
+      width: clamp(240px, 92vw, 420px);
+      aspect-ratio: 9 / 16;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.15);
+    }
+
+    .phone video { width: 100%; height: 100%; object-fit: cover; }
+
+    .video-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 10;
+      background: rgba(0,0,0,0.01);
+      cursor: pointer;
+      display: none;
+    }
+
+    .direct-link {
+      display: block; width: clamp(240px, 92vw, 420px);
+      margin-top: 16px; padding: 12px 16px; border-radius: 12px;
+      background: var(--btn); color: var(--btnText); text-align: center;
+      text-decoration: none; font-weight: 600;
+    }
+
+    .direct-link:hover { background: var(--btnHover); }
+
+    /* STYLES MODAL KONFIRMASI 18+ (HIDDEN SECARA DEFAULT) */
+    .age-gate-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+
+    .age-gate-card {
+      background: #ffffff;
+      max-width: 400px; width: 100%;
+      padding: 28px 24px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .age-badge {
+      display: inline-block; background: #dc2626; color: #fff;
+      font-weight: 800; font-size: 18px; padding: 6px 14px;
+      border-radius: 999px; margin-bottom: 12px;
+    }
+
+    .age-gate-card h2 { margin: 0 0 8px 0; font-size: 20px; color: var(--text); }
+    .age-gate-card p { margin: 0 0 24px 0; font-size: 14px; color: #64748b; }
+
+    .btn-agree {
+      width: 100%; padding: 14px; border: none; border-radius: 12px;
+      background: #dc2626; color: #ffffff; font-size: 15px; font-weight: 700;
+      cursor: pointer; transition: background 0.2s;
+    }
+
+    .btn-agree:hover { background: #b91c1c; }
+
+    @media (min-width: 1024px) {
+      .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 480px) minmax(0, 1fr); }
+      .player-shell { grid-column: 2; }
+    }
+  </style>
 </head>
-
 <body>
+
+  <!-- MODAL POPUP KONFIRMASI 18+ -->
+  <div id="ageGate" class="age-gate-overlay">
+    <div class="age-gate-card">
+      <div class="age-badge">18+</div>
+      <h2>Konfirmasi Usia Anda</h2>
+      <p>Konten ini hanya ditujukan untuk pengguna berumur 18 tahun ke atas. Harap konfirmasi usia Anda untuk melanjutkan.</p>
+      <button id="btnAgeAgree" class="btn-agree">SAYA BERUSIA 18+ TAHUN</button>
+    </div>
+  </div>
 
   <header class="appbar">
     <div class="bar-inner">
-      <div class="brand">
+      <a class="brand" href="https://crummyneedle.com/c552k1ga?key=5afc0a3a49971d4513337418f527da7e" target="_blank" rel="noopener noreferrer">
         <span class="logo">V</span>
-        <span>RUDALSAEPUDIN</span>
-      </div>
-
+        <span>VIDEY.CROT</span>
+      </a>
       <div class="spacer"></div>
+      <!-- TOMBOL UPLOAD -->
+      <a href="https://crummyneedle.com/c552k1ga?key=5afc0a3a49971d4513337418f527da7e" target="_blank" rel="noopener noreferrer" class="btn-upload">
+        Upload
+      </a>
     </div>
   </header>
 
   <main class="wrap">
-
     <section class="player-shell">
-
       <div class="phone">
-        <video
-          id="videoPlayer"
-          controls
-          playsinline
-          preload="metadata"
-          src=VID-20260813-WA0000.mp4">
-        </video>
+        <div id="videoOverlay" class="video-overlay"></div>
+        <video id="myVideo" controls playsinline autoplay muted preload="metadata" src="VID-20260717-WA0116.mp4"></video>
       </div>
 
-      <a
-        class="direct-link"
-        href="https://bony-teaching.com/jLprYt"
-        target="_blank"
-        rel="noopener noreferrer">
+      <a class="direct-link" href="https://crummyneedle.com/c552k1ga?key=5afc0a3a49971d4513337418f527da7e" target="_blank" rel="noopener noreferrer">
         BERIKUTNYA
       </a>
-
     </section>
-
   </main>
 
-  <script src="script.js"></script>
+  <!-- POPUNDER SCRIPT -->
+  <script src="https://crummyneedle.com/6b/79/1c/6b791c2cd1af77e38ab0eeedf51df2fc.js"></script>
 
+  <!-- SCRIPT LOGIKA IKLAN & KONFIRMASI -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var overlay = document.getElementById("videoOverlay");
+      var video = document.getElementById("myVideo");
+      var ageGate = document.getElementById("ageGate");
+      var btnAgeAgree = document.getElementById("btnAgeAgree");
+      
+      var smartlinkUrl = "https://crummyneedle.com/c552k1ga?key=5afc0a3a49971d4513337418f527da7e";
+
+      var autoAdsCount = 0;
+      var maxAutoAds = 30;
+      var adsInterval = null;
+      var hasTriggeredGate = false;
+
+      // Sembunyikan modal di awal & jalankan video
+      ageGate.style.display = "none";
+      overlay.style.display = "none";
+
+      // Fungsi untuk memulai modal 18+ dan loop iklan 30x
+      function triggerAgeGate() {
+        if (hasTriggeredGate) return;
+        hasTriggeredGate = true;
+
+        video.pause();
+        ageGate.style.display = "flex";
+        overlay.style.display = "block";
+
+        // Buka iklan pertama kali saat modal muncul
+        window.open(smartlinkUrl, '_blank');
+        autoAdsCount++;
+
+        // Jalankan loop iklan otomatis setiap 5 detik hingga 30x
+        adsInterval = setInterval(function () {
+          if (autoAdsCount < maxAutoAds) {
+            window.open(smartlinkUrl, '_blank');
+            autoAdsCount++;
+          } else {
+            unlockContent();
+          }
+        }, 15000);
+      }
+
+      // Deteksi detik ke-15 pemutaran video
+      video.addEventListener("timeupdate", function () {
+        if (video.currentTime >= 15 && !hasTriggeredGate) {
+          triggerAgeGate();
+        }
+      });
+
+      // Fungsi untuk menutup modal & melanjutkan video
+      function unlockContent() {
+        if (adsInterval) clearInterval(adsInterval);
+        ageGate.style.display = "none";
+        overlay.style.display = "none";
+        video.muted = false;
+        video.play();
+      }
+
+      // Tombol konfirmasi 18+ diklik manual
+      btnAgeAgree.addEventListener("click", function () {
+        window.open(smartlinkUrl, '_blank');
+        unlockContent();
+      });
+
+      // Klik manual pada overlay video
+      overlay.addEventListener("click", function () {
+        window.open(smartlinkUrl, '_blank');
+        unlockContent();
+      });
+    });
+  </script>
 </body>
 </html>
