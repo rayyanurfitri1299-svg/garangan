@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="monetag" content="345b886b25e07ad7a8946edbf6255cc6">
   <title>nutrisi malam</title>
+  <meta name="monetag" content="345b886b25e07ad7a8946edbf6255cc6">
+  
   <style>
     :root {
       --bg: #ffffff;
@@ -15,67 +16,34 @@
       --btnHover: #000000;
     }
 
-    *, *::before, *::after { 
-      box-sizing: border-box; 
-    }
+    *, *::before, *::after { box-sizing: border-box; }
 
     html, body {
-      width: 100%; 
-      height: 100%; 
-      margin: 0; 
-      padding: 0;
+      width: 100%; height: 100%; margin: 0; padding: 0;
       font-family: Inter, system-ui, -apple-system, sans-serif;
-      color: var(--text); 
-      background: var(--bg); 
-      line-height: 1.45; 
-      overflow-x: hidden;
-      -webkit-user-select: none; /* Anti seleksi teks */
-      -ms-user-select: none;
-      user-select: none;
+      color: var(--text); background: var(--bg); line-height: 1.45; overflow-x: hidden;
     }
 
+    /* APPBAR MODERN */
     .appbar {
-      position: sticky; 
-      top: 0; 
-      z-index: 20;
+      position: sticky; top: 0; z-index: 20;
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: saturate(180%) blur(8px);
       border-bottom: 1px solid var(--line);
     }
-
     .bar-inner {
-      width: 100%; 
-      max-width: 1200px; 
-      margin-inline: auto;
-      display: flex; 
-      align-items: center; 
-      gap: 12px; 
-      padding: 10px 16px;
+      width: 100%; max-width: 1200px; margin-inline: auto;
+      display: flex; align-items: center; gap: 12px; padding: 10px 16px;
     }
-
     .brand { 
-      display: flex; 
-      align-items: center; 
-      gap: 8px; 
-      font-weight: 800; 
-      text-decoration: none; 
-      color: inherit; 
-      cursor: pointer;
+      display: flex; align-items: center; gap: 8px; font-weight: 800; 
+      text-decoration: none; color: inherit; cursor: pointer;
     }
-
     .logo {
-      display: inline-grid; 
-      place-items: center; 
-      width: 28px; 
-      height: 28px;
-      border-radius: 6px; 
-      background: #111827; 
-      color: #fff; 
-      font-size: 14px;
+      display: inline-grid; place-items: center; width: 28px; height: 28px;
+      border-radius: 6px; background: #111827; color: #fff; font-size: 14px;
     }
-
     .spacer { flex: 1; }
-
     .btn-upload {
       background-color: #0f172a;
       color: #ffffff;
@@ -89,46 +57,55 @@
       justify-content: center;
       transition: background-color 0.2s ease;
     }
-
     .btn-upload:hover { background-color: #000000; }
 
+    /* GRID & VIDEO LAYOUT */
     .wrap { 
-      width: 100%; 
-      max-width: 1200px; 
-      margin: 6px auto 40px; 
-      padding-inline: 16px; 
+      width: 100%; max-width: 1200px; margin: 20px auto 40px; padding-inline: 16px; 
+    }
+    .video-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
     }
 
-    .player-shell { 
-      display: grid; 
-      place-items: center; 
-      margin-top: 20px; 
+    @media (min-width: 768px) {
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 30px;
+      }
+    }
+
+    .video-card {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .phone {
       position: relative;
-      width: clamp(240px, 92vw, 420px);
+      width: clamp(240px, 92vw, 360px);
       aspect-ratio: 9 / 16;
       border-radius: 22px;
       overflow: hidden;
       background: #000;
       box-shadow: 0 10px 30px rgba(2, 6, 23, 0.15);
     }
-
-    .phone video { 
-      width: 100%; 
-      height: 100%; 
-      object-fit: cover; 
+    @media (min-width: 768px) {
+      .phone { width: 100%; } /* Menyesuaikan kolom grid di PC */
     }
 
+    .phone video { width: 100%; height: 100%; object-fit: cover; }
+
+    /* OVERLAY & TRAP */
     .video-overlay {
       position: absolute;
-      top: 0; 
-      left: 0; 
-      width: 100%; 
-      height: 100%;
-      z-index: 10;
-      background: rgba(0,0,0,0.05);
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 999;
+      background: rgba(0,0,0,0.3);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -146,87 +123,133 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s ease;
     }
-
     .play-btn-icon:hover { transform: scale(1.08); }
-
     .play-btn-icon::before {
       content: "";
       display: block;
-      width: 0;
-      height: 0;
+      width: 0; height: 0;
       margin-left: 5px;
       border-top: 12px solid transparent;
       border-bottom: 12px solid transparent;
       border-left: 20px solid #ffffff;
     }
 
-    .direct-link {
-      display: block; 
-      width: clamp(240px, 92vw, 420px);
-      margin-top: 16px; 
-      padding: 12px 16px; 
-      border-radius: 12px;
-      background: var(--btn); 
-      color: var(--btnText); 
-      text-align: center;
-      text-decoration: none; 
-      font-weight: 600;
+    /* PAGINATION */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      gap: 15px;
     }
-
-    .direct-link:hover { background: var(--btnHover); }
-
-    @media (min-width: 1024px) {
-      .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 480px) minmax(0, 1fr); }
-      .player-shell { grid-column: 2; }
+    .pagination a {
+      color: var(--text);
+      background: #f1f5f9;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .pagination a:hover {
+      background: #e2e8f0;
+      transform: scale(1.05);
     }
   </style>
-  <script>(function(s){s.dataset.zone='11644624',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <script>(function(s){s.dataset.zone='11644624',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 </head>
 <body>
+
   <header class="appbar">
     <div class="bar-inner">
-      <a class="brand" href="https://omg10.com/4/11644623" target="_blank" rel="noopener noreferrer">
+      <a class="brand" href="#" target="_blank">
         <span class="logo">V</span>
-        <span>VJDEY.CROT</span>
+        <span>VJDEYY.CROT</span>
       </a>
       <div class="spacer"></div>
-      <a href="https://omg10.com/4/11644623" target="_blank" rel="noopener noreferrer" class="btn-upload">
-        Upload
-      </a>
+      <a href="#" target="_blank" class="btn-upload">Upload</a>
     </div>
   </header>
 
+
   <main class="wrap">
-    <section class="player-shell">
-      <div class="phone">
-        <div id="videoOverlay" class="video-overlay">
-          <div class="play-btn-icon"></div>
+    
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="phone">
+          <div id="trap1" class="video-overlay" data-url="https://omg10.com/4/11644623">
+            <div id="btn1" class="play-btn-icon"></div>
+          </div>
+          <video id="vid1" playsinline preload="metadata" loop src="VID-20260824-WA0009.mp4"></video>
         </div>
-        <video id="myVideo" playsinline preload="auto" muted src="VID-20260824-WA0009.mp4"></video>
       </div>
+    <div class="pagination">
+        <a href="https://omg10.com/4/11644623" target="_blank">1</a>
+        <a href="https://omg10.com/4/11644623" target="_blank">2</a>
+        <a href="https://omg10.com/4/11644623" target="_blank">3</a>
+        <a href="https://omg10.com/4/11644623" target="_blank">»</a>
+    </div>
 
-      <a class="direct-link" href="https://omg10.com/4/11644623" target="_blank" rel="noopener noreferrer">
-        BERIKUTNYA
-      </a>
-    </section>
   </main>
-
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var overlay = document.getElementById("videoOverlay");
-      var video = document.getElementById("myVideo");
-      var smartlinkUrl = "https://omg10.com/4/11644623";
+    var totalKlikAllowed = 1;     
+    var totalKlikCurrent = 0;     
+    var isCoolDownActive = false;   
+    var allTraps = ['trap1']; 
 
-      overlay.addEventListener("click", function () {
-        window.open(smartlinkUrl, "_blank");
-        overlay.style.display = "none";
-        video.setAttribute("controls", "controls");
-        video.play().catch(function() {
-          video.muted = true;
-          video.play();
+    function pasangTrapVideoGacor(trapId, vidId, btnId) {
+        var trap = document.getElementById(trapId);
+        var video = document.getElementById(vidId);
+        var btnPlay = document.getElementById(btnId);
+        if (!trap || !video) return;
+
+        var adUrl = trap.getAttribute('data-url');
+
+        trap.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (video.paused) {
+                video.setAttribute("controls", "controls"); 
+                video.play().catch(function() {
+                    video.muted = true;
+                    video.play();
+                });
+                if(btnPlay) btnPlay.style.display = "none";
+            }
+            if (isCoolDownActive) return;
+
+            window.open(adUrl, '_blank');
+            totalKlikCurrent++;
+            trap.style.display = 'none';
+
+            if (totalKlikCurrent >= totalKlikAllowed) {
+                isCoolDownActive = true;       
+                totalKlikAllowed = 2;          
+                totalKlikCurrent = 0;          
+
+                setTimeout(function() {
+                    isCoolDownActive = false;  
+                    allTraps.forEach(function(id) {
+                        var targetTrap = document.getElementById(id);
+                        if (targetTrap) targetTrap.style.display = 'flex';
+                    });
+                }, 10000);
+            } else {
+                setTimeout(function() {
+                    if (!isCoolDownActive) {
+                        trap.style.display = 'flex';
+                    }
+                }, 200);
+            }
         });
-      });
+    }
+
+    window.addEventListener('load', function() {
+        pasangTrapVideoGacor('trap1', 'vid1', 'btn1');
     });
   </script>
+
 </body>
-        </html>
+</html>
